@@ -2,7 +2,7 @@
 
 ## 📄 Projektbeschreibung
 
-Dieses Projekt stellt einen funktionsfähigen SaaS-Onlineshop als Minimum Viable Product (MVP) dar, entwickelt mit FastAPI und modernen Webtechnologien. Sensible Informationen werden verschlüsselt gespeichert. Das Projekt nutzt gängige DevOps- und Entwicklungspraktiken wie Dockerisierung, Tests, Umgebungsvariablen und Versionskontrolle über Git.
+Dieses Projekt stellt einen funktionsfähigen SaaS-Onlineshop als Minimum Viable Product (MVP) dar, entwickelt mit FastAPI und modernen Webtechnologien. Sensible Informationen werden verschlüsselt gespeichert. Das Projekt nutzt gängige DevOps- und Entwicklungspraktiken wie Dockerisierung, Tests, Umgebungsvariablen und Versionskontrolle über Git. Das Hauptaugenmerk dieses Projekts liegt auf der Backend-Architektur, Sicherheit und Funktionalität – nicht auf UI/UX oder Frontend-Design.
 
 Die App ermöglicht eine separate Verwaltung von zwei Nutzerkategorien: Gästen, die ohne Anmeldung surfen, und angemeldeten Benutzern, die Zugang zu erweiterten Funktionen haben (z. B. 10 % Rabatt):
 
