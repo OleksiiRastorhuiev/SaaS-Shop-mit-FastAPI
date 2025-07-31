@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>SaaS-Shop</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/f7DG" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .old-price {
+            text-decoration: line-through;
+            color: #ff0000;
+        }
+
+        .new-price {
+            font-weight: bold;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 style="color: #000;">SaaS Produkt-Shop</h1>
+    
+<!--Feedback Meldung anzeigen-->
+    {% if success %}
+    <div style="background-color: #ddffdd; padding: 10px; border: 1px solid #00aa00; margin-bottom: 20px;">
+        {{ success }}
+    </div>
+{% endif %}
+
+{% if username %}
+    <p style="margin-bottom: 32px; font-size: 20px;">Willkommen, {{ username }}! Als Abonnent erhalten Sie 10% Rabatt.</p>
+    <p style="margin-bottom: 32px;"><a href="/logout">Abmelden</a></p>
+{% else %}
+    <p style="margin-bottom: 32px; font-size: 20px;"><a href="/login">Anmelden</a> oder <a href="/register">Registrieren</a>, um 10% Rabatt zu erhalten.</p>
+{% endif %}
+
+    <!-- 🔍 Produktsuche -->
+    <form method="get">
+        <input type="text" name="search" placeholder="Produkte suchen" value="{{ search }}">
+        <button type="submit">Suchen</button>
+    </form>
+
+<p style="margin-top: 20px;"></p>
+
+    <!-- 📋 Quiz-Fragebogen -->
+    <div class="quiz">
+        <a href="/quiz">Produkte Empfehlung für Sie <i class= "fas fa-arrow-right"></i></a>
+
+    </div>
+
+    <!-- 💡 Empfehlungen -->
+    {% if recommendations %}
+        <div id="recommendations">
+            <h2>Unsere Empfehlungen für Sie:</h2>
+            <ul>
+                {% for recommendation in recommendations %}
+                    <li>{{ recommendation }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
+    <!-- 🛒 Produktliste -->
+<ul class="product-list">
+    {% for product in products %}
+        <li class="product-item">
+            <div>
+                <strong>{{ product.name }}</strong><br>
+                {{ product.description }}<br>
+                Preis: 
+                {% if username %}
+                    <span class="old-price">{{ "%.2f" % product.price }} €</span>
+                    <span class="new-price">{{ "%.2f" % (product.price * 0.9) }} €</span>
+                {% else %}
+                    {{ "%.2f" % product.price }} €
+                {% endif %}
+            </div>
+            <form method="post" action="/add_to_cart">
+                <input type="hidden" name="product_id" value="{{ product.id }}">
+                <button type="submit" onclick="saveScrollPosition()">In den Warenkorb</button>
+            </form>
+        </li>
+    {% endfor %}
+</ul>
+
+<!-- Funktion zum Speichern der Scroll-Position -->
+<script>
+    function saveScrollPosition() {
+        const scrollPosition = window.scrollY;
+        localStorage.setItem('scrollPosition', scrollPosition);
+    }
+</script>
+
+<!-- Funktion zum Wiederherstellen der Scroll-Position -->
+<script>
+    window.onload = function() {
+        const scrollPosition = localStorage.getItem('scrollPosition');
+        if (scrollPosition) {
+            window.scrollTo(0, scrollPosition);
+        }
+    }
+</script>
+
+<!-- Produktzähler -->
+{% if cart %}
+    <div class="product-counter" style="position: fixed; top: 50%; right: 20px; transform: translateY(-50%); z-index: 1000;">
+        <p>Produkte im Warenkorb: {{ cart|length }}</p>
+    </div>
+{% endif %}
+
+<!-- 🧾 Warenkorb -->
+<div class="cart">
+    <h2 style="color: #000;">Warenkorb</h2>
+    {% if cart %}
+        <ul class="cart-list">
+            {% for item in cart %}
+                <li class="cart-item">
+                    {{ item.name }} - 
+                    {% if username %}
+                        <span class="old-price">{{ "%.2f" % item.price }} €</span>
+                        <span class="new-price">{{ "%.2f" % (item.price * 0.9) }} €</span>
+                    {% else %}
+                        {{ "%.2f" % item.price }} €
+                    {% endif %}
+                    <form method="post" action="/remove_from_cart" style="display:inline;">
+                        <input type="hidden" name="product_id" value="{{ item.id }}">
+                        <button type="submit" class="button alert">Entfernen</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+        <p><strong>Gesamtpreis:</strong> {{ "%.2f" % gesamtpreis }} €</p>
+        <!-- ✅ Bestellung absenden: Weiterleitung per POST -->
+        <form id="checkout-form" method="post" action="/checkout">
+            <button type="submit" id="checkout-button">Bestellung abschließen</button>
+        </form>
+    {% else %}
+        <p>Ihr Warenkorb ist leer.</p>
+    {% endif %}
+</div>
+
+
+</body>
+</html>

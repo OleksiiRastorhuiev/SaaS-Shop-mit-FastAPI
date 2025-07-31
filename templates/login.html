@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Anmelden</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="container">
+    <h1 style="color: black;">Anmelden</h1>
+
+    {% if current_user %}
+        <p>Sie sind angemeldet als {{ current_user }}!</p>
+        <form method="get" action="/logout">
+            <button type="submit">Abmelden</button>
+        </form>
+    {% else %}
+        <form method="post" action="/login">
+            
+            <label for="username">Benutzername:</label><br>
+            <input type="text" id="username" name="username" required><br><br>
+
+            <label for="password">Passwort:</label><br>
+            <input type="password" id="password" name="password" required><br><br>
+
+            <button type="submit">Anmelden</button>
+        </form>
+
+        <p>Noch kein Konto? <a href="/register">Jetzt registrieren</a></p>
+    {% endif %}
+</div>
+</body>
+</html>

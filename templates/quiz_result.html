@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Empfohlene Produkte</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h2>Ihre Empfehlungen</h2>
+    <ul class="recommendation-list">
+        {% for product in recommendations %}
+            <li>{{ product }}</li>
+        {% endfor %}
+    </ul>
+
+    <div class="spacer"></div>
+
+    <h3>Ihre Antworten:</h3>
+    <ul class="answer-list">
+        {% for key, value in answers.items() %}
+            <li>{{ key.replace("_", " ").capitalize() }}: {{ value }}</li>
+        {% endfor %}
+    </ul>
+
+    <div class="spacer"></div>
+
+    <p><a href="/">Zurück auf Homepage</a></p>
+</body>
+</html>

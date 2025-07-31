@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Produkt-Empfehlung Quiz</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="container">
+    <h1 color="#000">Finden Sie passende Produkte</h1>
+    <form action="/recommendations" method="post">
+        <label>1. Ihre Abteilung:</label><br>
+        <select name="department" required>
+            <option value="HR">HR</option>
+            <option value="IT">IT</option>
+            <option value="Sales">Sales</option>
+            <option value="Finance">Finance</option>
+            <option value="Project">Projektmanagement</option>
+            <option value="Admin">Administration</option>
+        </select><br><br>
+
+        <label>2. Arbeiten Sie remote?</label><br>
+        <input type="radio" name="remote_work" value="yes" required> Ja
+        <input type="radio" name="remote_work" value="no"> Nein<br><br>
+
+        <label>3. Besteht Schulungsbedarf?</label><br>
+        <input type="radio" name="needs_training" value="yes" required> Ja
+        <input type="radio" name="needs_training" value="no"> Nein<br><br>
+
+        <label>4. Müssen Spesen verwaltet werden?</label><br>
+        <input type="radio" name="expense_handling" value="yes" required> Ja
+        <input type="radio" name="expense_handling" value="no"> Nein<br><br>
+
+        <label>5. Müssen Dokumente verwaltet werden?</label><br>
+        <input type="radio" name="document_handling" value="yes" required> Ja
+        <input type="radio" name="document_handling" value="no"> Nein<br><br>
+
+        <label>6. Gibt es Sicherheitsbedenken?</label><br>
+        <input type="radio" name="security_concern" value="yes" required> Ja
+        <input type="radio" name="security_concern" value="no"> Nein<br><br>
+
+        <label>7. Teamgröße:</label><br>
+        <input type="radio" name="team_size" value="small" required> Klein
+        <input type="radio" name="team_size" value="large"> Groß<br><br>
+
+        <button type="submit">Empfehlung anzeigen</button>
+    </form>
+    <br>
+    <a href="/">Zurück zum Shop</a>
+</div>
+</body>
+</html>
+
