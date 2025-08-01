@@ -94,7 +94,6 @@ Die App ermöglicht eine separate Verwaltung von zwei Nutzerkategorien: Gästen,
 
 > 📌 Nicht aufgelistet (aber vorhanden):
 > - `.env`: Enthält sensible Variablen wie `ENCRYPTION_KEY`, `SECRET_KEY`
-> - `.gitignore`, `.dockerignore`: Schließen temporäre und sensible Dateien aus
 > - `venv/`: Virtuelle Umgebung (steht in `.gitignore`)
 
 ---
