@@ -50,12 +50,11 @@ h1 {
   display: flex;
   align-items: center;
   margin: 20px 0;
-  
 }
 
 .search-container input[type="text"] {
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 12px; /* war 4px */
   padding: 10px 14px;
   width: 220px;
   font-size: 1rem;
@@ -64,7 +63,6 @@ h1 {
 }
 
 .search-container input[type="text"]:focus {
- 
   outline: none;
   box-shadow: 0 0 5px rgba(33, 150, 243, 0.8);
 }
@@ -74,7 +72,7 @@ h1 {
   color: #fff;
   border: none;
   padding: 10px 16px;
-  border-radius: 4px;
+  border-radius: 20px; /* war 4px */
   cursor: pointer;
   font-weight: 500;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
@@ -132,7 +130,7 @@ h1 {
   color: #fff;
   border: none;
   padding: 12px 20px;
-  border-radius: 25px;
+  border-radius: 30px; /* war 25px */
   cursor: pointer;
   font-weight: 500;
   font-size: 1rem;
@@ -185,7 +183,7 @@ h1 {
 .cart li form button {
   background-color: #f44336;
   padding: 8px 12px;
-  border-radius: 4px;
+  border-radius: 12px; /* war 4px */
   border: none;
   color: #fff;
   cursor: pointer;
@@ -207,7 +205,7 @@ h1 {
   margin-top: 20px;
   padding: 14px 24px;
   font-size: 1.1rem;
-  border-radius: 6px;
+  border-radius: 16px; /* war 6px */
   border: none;
   color: #fff;
   cursor: pointer;
@@ -247,7 +245,7 @@ button {
   color: white;
   border: none;
   padding: 10px 18px;
-  border-radius: 4px;
+  border-radius: 20px; /* war 4px */
   cursor: pointer;
   transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
   font-weight: 500;
@@ -277,3 +275,4 @@ ul.answer-list {
 .spacer {
     margin-top: 20px;
 }
+
