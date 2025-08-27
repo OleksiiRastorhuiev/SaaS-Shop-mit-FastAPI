@@ -9,11 +9,11 @@ Die App ermöglicht eine separate Verwaltung von zwei Nutzerkategorien: Gästen,
 <div style="display: flex; justify-content: center; gap: 40px; align-items: flex-start;">
   <div style="text-align: center;">
     <h3>🔓 Gastansicht</h3>
-    <img src="screenshots/gast.png" width="750" height="620" alt="Gast-Screenshot">
+    <img src="screenshots/gast_2.png" width="750" height="620" alt="Gast-Screenshot">
   </div>
   <div style="text-align: center;">
     <h3>👤 Benutzeransicht mit Rabatt</h3>
-    <img src="screenshots/benutzer_rabatt.png" width="750" height="620" alt="Benutzer-Screenshot">
+    <img src="screenshots/benutzer_rabatt_2.png" width="750" height="620" alt="Benutzer-Screenshot">
   </div>
 </div>
 
