@@ -4,9 +4,6 @@
 
 Dieses Projekt stellt einen funktionsfähigen SaaS-Onlineshop als Minimum Viable Product (MVP) dar, entwickelt mit FastAPI und modernen Webtechnologien. Sensible Informationen werden verschlüsselt gespeichert. Das Projekt nutzt gängige DevOps- und Entwicklungspraktiken wie Dockerisierung, Tests, Umgebungsvariablen und Versionskontrolle über Git. Das Hauptaugenmerk dieses Projekts liegt auf der Backend-Architektur, Sicherheit und Funktionalität – nicht auf UI/UX oder Frontend-Design.
 
-👉 **Live-Demo** (Azure Container Apps):  
-[Hier ausprobieren](https://ca-saas-01.salmonsand-94fe0dc9.westeurope.azurecontainerapps.io)
-
 Die App ermöglicht eine separate Verwaltung von zwei Nutzerkategorien: Gästen, die ohne Anmeldung surfen, und angemeldeten Benutzern, die Zugang zu erweiterten Funktionen haben (z. B. 10 % Rabatt):
 
 <div style="display: flex; justify-content: center; gap: 40px; align-items: flex-start;">
